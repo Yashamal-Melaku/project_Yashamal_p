@@ -65,7 +65,7 @@ const Portfolio = () => {
       } else {
         setSubmitMessage(result.message || 'Something went wrong. Please try again.');
       }
-    } catch (error) {
+    } catch {
       setSubmitMessage('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
@@ -206,8 +206,8 @@ const Portfolio = () => {
     <div className={`min-h-screen ${themeClasses.bg} transition-colors duration-300`}>
       {/* Navigation */}
       <nav className={`fixed top-0 w-full ${themeClasses.navBg} backdrop-blur-md z-50 shadow-sm transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between py-4">
             <div className={`text-2xl font-bold bg-gradient-to-r ${themeClasses.accent} bg-clip-text text-transparent`}>
               Yashamal Melaku
             </div>
@@ -223,7 +223,7 @@ const Portfolio = () => {
               </button>
               
               {/* Desktop Navigation */}
-              <div className="hidden md:flex space-x-8">
+              <div className="hidden space-x-8 md:flex">
                 {['about', 'projects', 'skills', 'education', 'contact'].map((item) => (
                   <button
                     key={item}
@@ -247,7 +247,7 @@ const Portfolio = () => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden pb-4 space-y-2">
+            <div className="pb-4 space-y-2 md:hidden">
               {['about', 'projects', 'skills', 'education', 'contact'].map((item) => (
                 <button
                   key={item}
@@ -263,8 +263,8 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      <section className="px-4 pt-24 pb-16 sm:px-6 lg:px-8">
+        <div className="mx-auto text-center max-w-7xl">
           <div className="mb-8 animate-fade-in">
             <div
   className={`w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-r ${themeClasses.accent} flex items-center justify-center text-white text-4xl font-bold shadow-lg`}
@@ -272,7 +272,7 @@ const Portfolio = () => {
   <img
     src="123.jpg"
     alt="Profile"
-    className="w-full h-full rounded-full object-cover"
+    className="object-cover w-full h-full rounded-full"
   />
 </div>
 
@@ -285,7 +285,7 @@ const Portfolio = () => {
             <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center ${themeClasses.textSecondary}`}>
               <button 
                 onClick={openLocation}
-                className="flex items-center gap-2 hover:text-orange-500 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                className="flex items-center gap-2 transition-colors cursor-pointer hover:text-orange-500 dark:hover:text-blue-400"
               >
                 <MapPin size={20} />
                 <span>Addis Ababa, Ethiopia</span>
@@ -310,7 +310,7 @@ const Portfolio = () => {
       <section id="about" className={`py-16 px-4 sm:px-6 lg:px-8 ${themeClasses.sectionBg} transition-colors duration-300`}>
         <div className="max-w-4xl mx-auto fade-in-section">
           <h2 className={`text-4xl font-bold text-center ${themeClasses.text} mb-12`}>About Me</h2>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 md:grid-cols-2">
             <div className="space-y-6">
   <p className={`text-lg ${themeClasses.textSecondary} leading-relaxed`}>
     I create modern, responsive websites, craft effective digital marketing strategies, and produce engaging tech content that helps ideas come to life online.
@@ -338,20 +338,20 @@ const Portfolio = () => {
 
       {/* Projects Section */}
       <section id="projects" className={`py-16 px-4 sm:px-6 lg:px-8 ${themeClasses.sectionBgAlt} transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto fade-in-section">
+        <div className="mx-auto max-w-7xl fade-in-section">
           <h2 className={`text-4xl font-bold text-center ${themeClasses.text} mb-12`}>Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
               <div key={index} className={`${themeClasses.cardBg} rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden`}>
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
                   />
                 </div>
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex items-start justify-between mb-4">
                     <h3 className={`text-xl font-bold ${themeClasses.text} leading-tight`}>{project.title}</h3>
                     <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       project.status === 'Completed' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' :
@@ -366,7 +366,7 @@ const Portfolio = () => {
                     <span className={`text-sm font-medium ${themeClasses.textSecondary} mb-2 block`}>Technology Stack:</span>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, techIndex) => (
-                        <span key={techIndex} className="px-3 py-1 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300 rounded-full text-xs font-medium">
+                        <span key={techIndex} className="px-3 py-1 text-xs font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
                           {tech}
                         </span>
                       ))}
@@ -374,7 +374,7 @@ const Portfolio = () => {
                   </div>
                   <div className={`flex justify-between items-center pt-4 border-t ${themeClasses.border}`}>
                     <span className={`text-sm ${themeClasses.textSecondary} font-medium`}>{project.type}</span>
-                    <button className="flex items-center gap-2 text-orange-600 dark:text-blue-400 hover:text-orange-800 dark:hover:text-blue-600 transition-colors font-medium">
+                    <button className="flex items-center gap-2 font-medium text-orange-600 transition-colors dark:text-blue-400 hover:text-orange-800 dark:hover:text-blue-600">
                       <span>View Details</span>
                       <ExternalLink size={16} />
                     </button>
@@ -390,8 +390,8 @@ const Portfolio = () => {
       <section id="skills" className={`py-16 px-4 sm:px-6 lg:px-8 ${themeClasses.sectionBg} transition-colors duration-300`}>
         <div className="max-w-6xl mx-auto fade-in-section">
           <h2 className={`text-4xl font-bold text-center ${themeClasses.text} mb-12`}>Technical Skills</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-6 rounded-xl">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
                 <Code className="text-blue-600 dark:text-blue-400" size={24} />
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>Programming</h3>
@@ -405,7 +405,7 @@ const Portfolio = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 p-6 rounded-xl">
+            <div className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
                 <Globe className="text-green-600 dark:text-green-400" size={24} />
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>Web Development</h3>
@@ -419,7 +419,7 @@ const Portfolio = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 p-6 rounded-xl">
+            <div className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
                 <Database className="text-purple-600 dark:text-purple-400" size={24} />
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>Databases</h3>
@@ -433,7 +433,7 @@ const Portfolio = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800 p-6 rounded-xl">
+            <div className="p-6 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900 dark:to-orange-800 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
                 <Monitor className="text-orange-600 dark:text-orange-400" size={24} />
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>Tools & Platforms</h3>
@@ -447,7 +447,7 @@ const Portfolio = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900 dark:to-red-800 p-6 rounded-xl">
+            <div className="p-6 bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900 dark:to-red-800 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
                 <Users className="text-red-600 dark:text-red-400" size={24} />
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>Mobile Development</h3>
@@ -461,7 +461,7 @@ const Portfolio = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900 dark:to-teal-800 p-6 rounded-xl">
+            <div className="p-6 bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900 dark:to-teal-800 rounded-xl">
               <div className="flex items-center gap-3 mb-4">
                 <Shield className="text-teal-600 dark:text-teal-400" size={24} />
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>Other Skills</h3>
@@ -484,18 +484,18 @@ const Portfolio = () => {
           <h2 className={`text-4xl font-bold text-center ${themeClasses.text} mb-12`}>Education & Certifications</h2>
           <div className="space-y-8">
             <div className={`${themeClasses.cardBg} p-6 rounded-xl shadow-lg`}>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <div className="flex flex-col mb-4 md:flex-row md:items-center md:justify-between">
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>BSc in Information Technology</h3>
-                <span className="text-blue-600 dark:text-blue-400 font-medium">2021 - 2025</span>
+                <span className="font-medium text-blue-600 dark:text-blue-400">2021 - 2025</span>
               </div>
               <p className={`${themeClasses.textSecondary} mb-2`}>Haramaya University</p>
               <p className={themeClasses.textSecondary}>Comprehensive study of software development, database systems, networking, and cybersecurity fundamentals.</p>
             </div>
 
             <div className={`${themeClasses.cardBg} p-6 rounded-xl shadow-lg`}>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <div className="flex flex-col mb-4 md:flex-row md:items-center md:justify-between">
                 <h3 className={`text-xl font-bold ${themeClasses.text}`}>Android Developer Certificate</h3>
-                <span className="text-green-600 dark:text-green-400 font-medium">Completed</span>
+                <span className="font-medium text-green-600 dark:text-green-400">Completed</span>
               </div>
               <p className={`${themeClasses.textSecondary} mb-2`}>Udacity</p>
               <p className={themeClasses.textSecondary}>Specialized training in Android application development, including UI/UX design, data persistence, and API integration.</p>
@@ -510,7 +510,7 @@ const Portfolio = () => {
       <section id="contact" className={`py-16 px-4 sm:px-6 lg:px-8 ${themeClasses.sectionBg} transition-colors duration-300`}>
         <div className="max-w-4xl mx-auto fade-in-section">
           <h2 className={`text-4xl font-bold text-center ${themeClasses.text} mb-12`}>Get In Touch</h2>
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid gap-12 md:grid-cols-2">
             <div>
               <h3 className={`text-2xl font-bold ${themeClasses.text} mb-6`}>Let's Connect</h3>
               <div className="space-y-4">
@@ -555,13 +555,13 @@ const Portfolio = () => {
               <div className="mt-8">
                 <h4 className={`text-lg font-medium ${themeClasses.text} mb-4`}>Follow Me</h4>
                 <div className="flex gap-4">
-                  <a href="https://linkedin.com/in/yashamal-melaku" className="p-3 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
+                  <a href="https://linkedin.com/in/yashamal-melaku" className="p-3 text-blue-600 transition-colors bg-blue-100 rounded-lg dark:bg-blue-900 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-800">
                     <Linkedin size={24} />
                   </a>
-                  <a href="https://github.com/yashamalmelaku" className="p-3 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                  <a href="https://github.com/yashamalmelaku" className="p-3 text-gray-600 transition-colors bg-gray-100 rounded-lg dark:bg-gray-700 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600">
                     <Github size={24} />
                   </a>
-                  <a href="https://twitter.com/yashamalmelaku" className="p-3 bg-blue-100 dark:bg-blue-900 text-blue-400 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
+                  <a href="https://twitter.com/yashamalmelaku" className="p-3 text-blue-400 transition-colors bg-blue-100 rounded-lg dark:bg-blue-900 dark:text-blue-400 hover:bg-blue-200 dark:hover:bg-blue-800">
                     <Twitter size={24} />
                   </a>
                 </div>
@@ -633,7 +633,7 @@ const Portfolio = () => {
 
       {/* Footer */}
       <footer className={`bg-gray-900 dark:bg-black text-white py-8 px-4 sm:px-6 lg:px-8 transition-colors duration-300`}>
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="mx-auto text-center max-w-7xl">
           <p className="text-gray-400">
             © 2025 Yashamal Melaku. All rights reserved.
           </p>

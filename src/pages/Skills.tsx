@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Globe, Smartphone, Database, Settings, Palette, TrendingUp, Video, Mail, Phone } from 'lucide-react';
 
 const Skills = () => {
-  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [hoveredSkill, setHoveredSkill] = useState(null);
 
   const skillCategories = [
     {
@@ -102,7 +102,7 @@ const Skills = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -158,12 +158,7 @@ const Skills = () => {
                 </h3>
                 <div className="space-y-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <div
-                      key={skillIndex}
-                      className="group"
-                      onMouseEnter={() => setHoveredSkill(`${categoryIndex}-${skillIndex}`)}
-                      onMouseLeave={() => setHoveredSkill(null)}
-                    >
+                    <div key={skillIndex} className="group">
                       <div className="flex justify-between items-center mb-1">
                         <span className="text-sm font-medium text-gray-700 group-hover:text-blue-800 transition-colors">
                           {skill.name}
@@ -176,18 +171,11 @@ const Skills = () => {
                         <motion.div
                           className={`h-2 rounded-full bg-gradient-to-r ${category.color}`}
                           initial={{ width: 0 }}
-                          animate={{ 
-                            width: hoveredSkill === `${categoryIndex}-${skillIndex}` ? `${skill.level}%` : '0%' 
-                          }}
-                          transition={{ duration: 0.8 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: 0.5 + skillIndex * 0.1 }}
+                          viewport={{ once: true }}
                         />
                       </div>
-                      <motion.p 
-                        className="text-gray-600 text-sm leading-relaxed mt-1"
-                        animate={{ opacity: hoveredSkill === `${categoryIndex}-${skillIndex}` ? 1 : 0.7 }}
-                      >
-                        {skill.description}
-                      </motion.p>
                     </div>
                   ))}
                 </div>
@@ -197,8 +185,113 @@ const Skills = () => {
         </div>
       </section>
 
+      {/* Detailed Skills */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Interactive Skills Portfolio
+            </h2>
+            <p className="text-lg text-gray-600">
+              Hover over each skill to learn more about my experience and capabilities
+            </p>
+          </motion.div>
+
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={categoryIndex}
+              className="mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center mb-8">
+                <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r ${category.color} text-white mr-4`}>
+                  <category.icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">
+                  {category.title}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skillIndex}
+                    className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative overflow-hidden"
+                    onMouseEnter={() => setHoveredSkill(`${categoryIndex}-${skillIndex}`)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                    whileHover={{ 
+                      y: -5,
+                      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                    }}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg font-semibold text-gray-900">
+                        {skill.name}
+                      </h4>
+                      <div className="flex items-center">
+                        <span className="text-sm font-medium text-gray-600 mr-2">
+                          {skill.level}%
+                        </span>
+                        <div className="w-12 h-2 bg-gray-200 rounded-full">
+                          <motion.div
+                            className={`h-2 rounded-full bg-gradient-to-r ${category.color}`}
+                            initial={{ width: 0 }}
+                            animate={{ 
+                              width: hoveredSkill === `${categoryIndex}-${skillIndex}` ? `${skill.level}%` : '0%'
+                            }}
+                            transition={{ duration: 0.8 }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <motion.p 
+                      className="text-gray-600 text-sm leading-relaxed"
+                      initial={{ opacity: 0.7 }}
+                      animate={{ 
+                        opacity: hoveredSkill === `${categoryIndex}-${skillIndex}` ? 1 : 0.7 
+                      }}
+                    >
+                      {skill.description}
+                    </motion.p>
+
+                    {/* Hover effect background */}
+                    <motion.div
+                      className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 pointer-events-none`}
+                      animate={{
+                        opacity: hoveredSkill === `${categoryIndex}-${skillIndex}` ? 0.05 : 0
+                      }}
+                      transition={{ duration: 0.3 }}
+                    />
+
+                    {/* Glow effect */}
+                    {hoveredSkill === `${categoryIndex}-${skillIndex}` && (
+                      <motion.div
+                        className={`absolute -inset-1 bg-gradient-to-r ${category.color} rounded-xl blur opacity-25`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.25 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Learning & Growth */}
-     <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
+      <section className="py-20 bg-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"

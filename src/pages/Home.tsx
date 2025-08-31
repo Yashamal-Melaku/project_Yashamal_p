@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Code, Smartphone, Globe, TrendingUp, Star, ChevronLeft, ChevronRight, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = React.useState(0);
@@ -57,7 +58,8 @@ const Home = () => {
     <div className="pt-16">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900">
+          <AnimatedBackground />
         </div>
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -214,7 +216,7 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"

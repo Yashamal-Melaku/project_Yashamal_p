@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, Calendar, MapPin, Award, BookOpen, Download, Mail, Phone } from 'lucide-react';
 
@@ -73,7 +74,7 @@ const Education = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-     <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
+      <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -349,7 +350,7 @@ const Education = () => {
       </section>
 
       {/* Achievements */}
-     <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
+      <section className="py-20 bg-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"

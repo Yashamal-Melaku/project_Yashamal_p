@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -6,7 +6,8 @@ const About: React.FC = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -17,7 +18,7 @@ const About: React.FC = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               About Me
             </h1>
-            <p className="text-xl md:text-2xl text-blue-200 mb-8">
+            <p className="text-xl md:text-2xl text-white mb-8">
               Passionate developer crafting digital experiences with modern technologies
             </p>
           </motion.div>
@@ -197,7 +198,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white" >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -208,20 +209,20 @@ const About: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Let's Work Together
             </h2>
-            <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
               Ready to bring your ideas to life? I'm here to help you create something amazing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="mailto:yashamalmelaku@gmail.com"
-                className="inline-flex items-center px-8 py-4 bg-white text-orange-600 hover:bg-gray-100 font-semibold rounded-full transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-orange-600 text-white hover:bg-red-500 font-semibold rounded-full transition-all duration-300 hover:scale-105"
               >
                 <Mail className="mr-2 w-5 h-5" />
                 Send Email
               </a>
               <a
                 href="tel:+251949812341"
-                className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold rounded-full transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center px-8 py-4 bg-orange-600 border-2 border-white text-white hover:bg-green-600 hover:text-white font-semibold rounded-full transition-all duration-300 hover:scale-105"
               >
                 <Phone className="mr-2 w-5 h-5" />
                 Call Me

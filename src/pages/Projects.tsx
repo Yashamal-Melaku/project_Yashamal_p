@@ -1,11 +1,37 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Filter, Smartphone, Globe, Video, Database, BarChart, Mail, Phone } from 'lucide-react';
+import {
+  ExternalLink,
+  Github,
+  Filter,
+  Smartphone,
+  Globe,
+  Video,
+  Database,
+  BarChart,
+  Mail,
+  Phone
+} from 'lucide-react';
+
+// Define all possible categories
+type Category = 'Mobile Apps' | 'Web Apps' | 'Content Creation' | 'Full-Stack' | 'Dashboards' | 'Desktop Apps';
+
+// Define Project type
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  category: Category | string; // Accept string to handle any future categories
+  status: 'Completed' | 'In Progress' | string;
+  features: string[];
+}
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
       title: "Online Shopping Android App",
@@ -98,27 +124,28 @@ const Projects = () => {
     }
   ];
 
-  const filters = ['All', 'Mobile Apps', 'Web Apps', 'Full-Stack', 'Content Creation', 'Dashboards', 'Desktop Apps'];
+  const filters: string[] = ['All', 'Mobile Apps', 'Web Apps', 'Full-Stack', 'Content Creation', 'Dashboards', 'Desktop Apps'];
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
-  const getCategoryIcon = (category) => {
-    switch (category) {
-      case 'Mobile Apps': return Smartphone;
-      case 'Web Apps': return Globe;
-      case 'Content Creation': return Video;
-      case 'Full-Stack': return Database;
-      case 'Dashboards': return BarChart;
-      default: return Globe;
-    }
+  // Category icon mapping
+  const categoryIcons: Record<string, any> = {
+    'Mobile Apps': Smartphone,
+    'Web Apps': Globe,
+    'Content Creation': Video,
+    'Full-Stack': Database,
+    'Dashboards': BarChart,
+    'Desktop Apps': Globe
   };
+
+  const getCategoryIcon = (category: string) => categoryIcons[category] || Globe;
 
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -126,9 +153,7 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              My Projects
-            </h1>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">My Projects</h1>
             <p className="text-xl md:text-2xl text-blue-200 mb-8">
               A showcase of my work in web development, mobile apps, and content creation
             </p>
@@ -146,7 +171,7 @@ const Projects = () => {
             transition={{ duration: 0.6 }}
           >
             <Filter className="w-6 h-6 text-gray-600 mt-2" />
-            {filters.map((filter) => (
+            {filters.map(filter => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
@@ -168,7 +193,7 @@ const Projects = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatePresence>
             <div className="space-y-20">
-              {filteredProjects.map((project) => {
+              {filteredProjects.map(project => {
                 const CategoryIcon = getCategoryIcon(project.category);
                 return (
                   <motion.div
@@ -182,17 +207,18 @@ const Projects = () => {
                     whileHover={{ y: -10 }}
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 min-h-[500px]">
+                      {/* Project Image */}
                       <div className="relative h-80 lg:h-full overflow-hidden">
-                        <img 
-                          src={project.image} 
+                        <img
+                          src={project.image}
                           alt={project.title}
                           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="absolute top-6 left-6">
                           <span className={`px-4 py-2 text-sm font-medium rounded-full ${
-                            project.status === 'Completed' 
-                              ? 'bg-green-500 text-white' 
+                            project.status === 'Completed'
+                              ? 'bg-green-500 text-white'
                               : project.status === 'In Progress'
                               ? 'bg-orange-500 text-white'
                               : 'bg-blue-500 text-white'
@@ -215,27 +241,22 @@ const Projects = () => {
                         </div>
                       </div>
 
+                      {/* Project Details */}
                       <div className="p-8 lg:p-12 flex flex-col justify-center bg-white dark:bg-gray-800">
                         <div className="flex items-center justify-between mb-4">
-                          <span className="text-lg text-orange-600 font-semibold">
-                            {project.category}
-                          </span>
+                          <span className="text-lg text-orange-600 font-semibold">{project.category}</span>
                         </div>
-                        
                         <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                           {project.title}
                         </h3>
-                        
-                        <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-lg">
-                          {project.description}
-                        </p>
+                        <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-lg">{project.description}</p>
 
                         <div className="mb-8">
                           <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Key Features:</h4>
                           <div className="grid grid-cols-2 gap-3">
-                            {project.features.map((feature, index) => (
-                              <div key={index} className="flex items-center">
-                                <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
+                            {project.features.map((feature, idx) => (
+                              <div key={idx} className="flex items-center">
+                                <div className="w-2 h-2 bg-orange-500 rounded-full mr-3" />
                                 <span className="text-gray-700 dark:text-gray-300 text-sm">{feature}</span>
                               </div>
                             ))}
@@ -243,9 +264,9 @@ const Projects = () => {
                         </div>
 
                         <div className="flex flex-wrap gap-3">
-                          {project.tech.map((tech, index) => (
+                          {project.tech.map((tech, idx) => (
                             <span
-                              key={index}
+                              key={idx}
                               className="px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-sm font-medium rounded-full"
                             >
                               {tech}
@@ -263,7 +284,7 @@ const Projects = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-blue-950 via-blue-800 to-orange-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -271,16 +292,13 @@ const Projects = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Let's Work Together
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Work Together</h2>
             <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-              Have a project in mind? I'd love to help bring your ideas to life with 
-              modern technology and creative solutions.
+              Have a project in mind? I'd love to help bring your ideas to life with modern technology and creative solutions.
             </p>
             <motion.a
               href="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-orange-600 hover:bg-gray-100 font-semibold rounded-full transition-all duration-300"
+              className="inline-flex items-center px-8 py-4 bg-white text-orange-600 hover:bg-orange-600 hover:text-white font-semibold rounded-full transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

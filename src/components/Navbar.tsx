@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,16 +63,17 @@ const Navbar = () => {
                 )}
               </Link>
             ))}
-            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2 text-gray-900"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden">
+            <button
+              className="p-2 text-gray-900"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -99,9 +99,6 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
-          <div className="px-3 py-2">
-            <ThemeToggle />
-          </div>
         </div>
       </motion.div>
     </motion.nav>

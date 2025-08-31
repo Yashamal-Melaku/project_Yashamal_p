@@ -15,7 +15,7 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+        <div className="min-h-screen bg-white text-gray-900 transition-colors duration-300">
           <Navbar />
           <AnimatePresence mode="wait">
             <Routes>

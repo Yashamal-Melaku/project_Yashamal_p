@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code, Globe, Smartphone, Database, Settings, Palette, TrendingUp, Video, Mail, Phone } from 'lucide-react';
 
@@ -55,7 +55,7 @@ const Skills = () => {
     {
       title: "Tools & Platforms",
       icon: Settings,
-      color: "from-gray-600 to-gray-800",
+      color: "from-red-300 to-red-800",
       skills: [
         { name: "Git", level: 90, description: "Version control, branching, collaboration" },
         { name: "VS Code", level: 95, description: "Extensions, debugging, productivity" },
@@ -291,7 +291,8 @@ const Skills = () => {
       </section>
 
       {/* Learning & Growth */}
-      <section className="py-20 bg-blue-800 text-white">
+       <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center max-w-4xl mx-auto"
@@ -303,7 +304,7 @@ const Skills = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
               Continuous Learning Journey
             </h2>
-            <p className="text-xl text-blue-200 mb-8">
+            <p className="text-xl text-white mb-8">
               Technology evolves rapidly, and so do I. I'm committed to staying current with 
               the latest trends, tools, and best practices in the industry.
             </p>
@@ -322,14 +323,14 @@ const Skills = () => {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <h3 className="text-xl font-semibold mb-4 text-orange-300">
+                  <h3 className="text-xl font-semibold mb-4 text-orange-600">
                     {section.title}
                   </h3>
                   <ul className="space-y-2">
                     {section.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="flex items-center">
                         <div className="w-2 h-2 bg-orange-500 rounded-full mr-3"></div>
-                        <span className="text-blue-100">{item}</span>
+                        <span className="text-white">{item}</span>
                       </li>
                     ))}
                   </ul>

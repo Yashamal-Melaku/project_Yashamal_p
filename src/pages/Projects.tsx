@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Filter, Smartphone, Globe, Video, Database, BarChart, Mail, Phone } from 'lucide-react';
 

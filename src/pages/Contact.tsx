@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Linkedin, Github, MessageCircle, CheckCircle, MessageSquare } from 'lucide-react';
 
@@ -322,28 +322,6 @@ const Contact = () => {
                   </motion.a>
                 ))}
               </div>
-
-              {/* Social Media Links */}
-              <div className="pt-8">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-                  Connect With Me
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={index}
-                      href={social.href}
-                      className={`flex items-center justify-center p-4 bg-gray-800 text-white rounded-xl ${social.color} transition-all duration-300`}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <social.icon className="w-6 h-6 mr-2" />
-                      <span className="text-sm font-medium">{social.name}</span>
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
-
               {/* Response Time */}
               <div className="bg-blue-50 rounded-2xl p-6">
                 <h3 className="text-lg font-semibold text-blue-900 mb-2">
@@ -410,8 +388,8 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+       <section className="py-20 bg-gradient-to-br from-orange-600 via-blue-400 to-blue-900 text-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}

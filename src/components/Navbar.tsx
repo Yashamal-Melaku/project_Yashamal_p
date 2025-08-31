@@ -4,7 +4,8 @@ import { Menu, X, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 
-const Navbar = () => {
+const Navbar = () => { 
+  
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -29,17 +30,16 @@ const Navbar = () => {
   return (
     <motion.nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/80 backdrop-blur-sm'
+        scrolled ? 'bg-transparent backdrop-blur-md shadow-lg' : 'bg-white/80 backdrop-blur-sm'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <Code className="w-8 h-8 text-orange-500" />
-            <span className="font-bold text-xl text-gray-900">Yashamal</span>
+            <span className="font-bold text-xl text-gray-900">Yashamal melaku</span>
           </Link>
 
           {/* Desktop Menu */}

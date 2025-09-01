@@ -28,21 +28,21 @@ const Navbar = () => {
   return (
     <motion.nav 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/80 backdrop-blur-sm'
+        scrolled ? 'bg-transparent backdrop-blur-md shadow-lg' : 'bg-white/80 backdrop-blur-sm'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
             <Code className="w-8 h-8 text-orange-500" />
-            <span className="font-bold text-xl text-gray-900">Yashamal</span>
+            <span className="text-xl font-bold text-gray-900">Yashamal</span>
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="items-center hidden space-x-8 md:flex">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -84,7 +84,7 @@ const Navbar = () => {
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -20 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md shadow-lg">
+        <div className="px-2 pt-2 pb-3 space-y-1 shadow-lg bg-white/95 backdrop-blur-md">
           {navItems.map((item) => (
             <Link
               key={item.path}

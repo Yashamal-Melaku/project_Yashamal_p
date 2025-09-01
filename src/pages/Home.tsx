@@ -99,7 +99,7 @@ const Home = () => {
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center px-8 py-4 font-semibold text-white transition-all duration-300 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-blue-900 hover:scale-105"
+                className="inline-flex items-center px-8 py-4 font-semibold text-white transition-all duration-300 bg-transparent border-2 border-white rounded-full hover:bg-green-600 hover:text-white hover:scale-105"
               >
                 Get in Touch
               </Link>
@@ -314,12 +314,6 @@ const Home = () => {
         { name: "Amazon", logo: "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
         { name: "Meta", logo: "https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
         { name: "Apple", logo: "https://images.pexels.com/photos/788946/pexels-photo-788946.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
-        { name: "Netflix", logo: "https://images.pexels.com/photos/5077063/pexels-photo-5077063.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
-        { name: "Tesla", logo: "https://images.pexels.com/photos/799443/pexels-photo-799443.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
-        { name: "IBM", logo: "https://images.pexels.com/photos/374631/pexels-photo-374631.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
-        { name: "Intel", logo: "https://images.pexels.com/photos/4709285/pexels-photo-4709285.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
-        { name: "Adobe", logo: "https://images.pexels.com/photos/5698412/pexels-photo-5698412.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" },
-        { name: "Samsung", logo: "https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg?auto=compress&cs=tinysrgb&w=200&h=100" }
       ].map((company, index) => (
         <motion.div
           key={index}
@@ -364,10 +358,11 @@ const Home = () => {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Code, title: "Web Development", desc: "Modern, responsive websites" },
-              { icon: Smartphone, title: "Mobile Apps", desc: "Android & cross-platform" },
-              { icon: Globe, title: "Digital Marketing", desc: "SEO & social strategies" },
-              { icon: TrendingUp, title: "Content Creation", desc: "Tech education & tutorials" }
+{ icon: Code, title: "Web Development", desc: "Modern, responsive, high-performance websites" },
+{ icon: TrendingUp, title: "Content Creation", desc: "Tech tutorials, education, and engaging content" },
+{ icon: Smartphone, title: "Social Media Management", desc: "Strategies, content planning, and community growth" },
+{ icon: Globe, title: "Digital Marketing", desc: "SEO optimization and social strategies" },
+
             ].map((service, index) => (
               <motion.div
                 key={index}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Code } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -37,8 +37,7 @@ const Navbar = () => {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <Code className="w-8 h-8 text-orange-500" />
-            <span className="text-xl font-bold text-gray-900">Yashamal</span>
+            <span className="text-xl font-bold text-gray-900">Yashamal Melaku</span>
           </Link>
 
           {/* Desktop Menu */}

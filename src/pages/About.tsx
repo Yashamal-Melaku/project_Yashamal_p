@@ -86,7 +86,7 @@ Outside of coding, I’m deeply interested in technology, innovation, and tech e
                   Download Resume
                 </button>
                 <a
-                  href="mailto:yashamalmelaku@gmail.com"
+                  href="/contact"
                   className="px-8 py-3 font-semibold text-center text-orange-500 transition-all duration-300 bg-transparent border-2 border-orange-500 rounded-lg hover:bg-orange-500 hover:text-white"
                 >
                   Get in Touch

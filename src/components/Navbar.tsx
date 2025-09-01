@@ -49,7 +49,7 @@ const Navbar = () => {
                 className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.path
                     ? 'text-orange-500'
-                    : 'text-gray-700 hover:text-orange-500'
+                    : 'text-black hover:text-orange-500'
                 }`}
               >
                 {item.label}
@@ -67,7 +67,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
-              className="p-2 text-gray-900"
+              className="p-2 text-black"
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -91,7 +91,7 @@ const Navbar = () => {
               className={`block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 ${
                 location.pathname === item.path
                   ? 'text-orange-500 bg-gray-100'
-                  : 'text-gray-700 hover:text-orange-500 hover:bg-gray-100'
+                  : 'text-black hover:text-orange-500 hover:bg-blue-200'
               }`}
               onClick={() => setIsOpen(false)}
             >

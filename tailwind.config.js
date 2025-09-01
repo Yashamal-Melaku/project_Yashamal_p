@@ -6,3 +6,9 @@ export default {
   },
   plugins: [],
 };
+module.exports = {
+  darkMode: 'class', // use class strategy
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  theme: { extend: {} },
+  plugins: [],
+}

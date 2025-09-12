@@ -73,7 +73,7 @@ Outside of coding, I’m deeply interested in technology, innovation, and tech e
                 </div>
                 <div className="flex items-center space-x-3">
                   <User className="w-5 h-5 text-orange-500" />
-                  <span className="text-gray-700">Full-Stack Developer</span>
+                  <span className="text-gray-700">Web Developer & Social Media Strategist</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Download className="w-5 h-5 text-blue-600" />

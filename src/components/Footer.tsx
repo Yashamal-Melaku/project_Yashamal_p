@@ -11,55 +11,57 @@ const Footer = () => {
     { path: '/contact', label: 'Contact' }
   ];
 
-  const socialLinks = [
-    {
-      name: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/yashamal-melaku',
-      icon: Linkedin,
-      color: 'hover:bg-blue-600'
-    },
-    {
-      name: 'GitHub',
-      href: 'https://github.com/Yashamal-Melaku',
-      icon: Github,
-      color: 'hover:bg-gray-700 dark:hover:bg-gray-900'
-    },
-    {
-      name: 'TikTok',
-      href: 'https://www.tiktok.com/@tech_plus_s?_t=ZM-8vaYFFMPUDX&_r=1',
-      icon: Music2,
-      color: 'hover:bg-black dark:hover:bg-balck'
-    },
-    {
-      name: 'Telegram',
-      href: 'https://t.me/Yashamal_Melaku',
-      icon: Send,
-      color: 'hover:bg-blue-500'
-    },{
-      name: 'facebook',
-      href: 'https://www.facebook.com/share/16LStpG6dD/?mibextid=wwXIfr',
-      icon: FacebookIcon,
-color: 'hover:bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800'
-    },
-    {
-      name: 'Discord',
-      href: '#',
-      icon: MessageCircle,
-      color: 'hover:bg-indigo-600'
-    },
-    {
-      name: 'x',
-      href: 'https://x.com/yashamalm?s=21',
-      icon: TwitterIcon,
-color: 'hover:bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600'
-    },
-    {
-      name: 'Instagram',
-      href: 'https://www.instagram.com/yashamal_m?igsh=MWwxdWlncmZoZjRlOQ%3D%3D&utm_source=qr',
-      icon: InstagramIcon,
-color: 'hover:bg-gradient-to-r from-pink-500 via-yellow-400 to-orange-500'
-    },
-  ];
+ const socialLinks = [
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/yashamal-melaku',
+    icon: Linkedin,
+    color: 'bg-gradient-to-br from-blue-700 to-blue-500' // LinkedIn blue gradient
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/Yashamal-Melaku',
+    icon: Github,
+    color: 'bg-gray-900' // GitHub dark gray
+  },
+  {
+    name: 'TikTok',
+    href: 'https://www.tiktok.com/@tech_plus_s?_t=ZM-8vaYFFMPUDX&_r=1',
+    icon: Music2,
+    color: 'bg-black border border-white' // Dark black with white border
+  },
+  {
+    name: 'Telegram',
+    href: 'https://t.me/Yashamal_Melaku',
+    icon: Send,
+    color: 'bg-gradient-to-br from-[#37AEE2] to-[#1E96C8]' // Telegram blue gradient
+  },
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/share/16LStpG6dD/?mibextid=wwXIfr',
+    icon: FacebookIcon,
+    color: 'bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800' // Facebook blue gradient
+  },
+  {
+    name: 'Discord',
+    href: '#',
+    icon: MessageCircle,
+    color: 'bg-gradient-to-br from-indigo-500 to-indigo-700' // Discord blurple gradient
+  },
+  {
+    name: 'X',
+    href: 'https://x.com/yashamalm?s=21',
+    icon: TwitterIcon,
+    color: 'bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600' // X (Twitter) colors
+  },
+  {
+    name: 'Instagram',
+    href: 'https://www.instagram.com/yashamal_m?igsh=MWwxdWlncmZoZjRlOQ%3D%3D&utm_source=qr',
+    icon: InstagramIcon,
+    color: 'bg-gradient-to-tr from-pink-500 via-yellow-400 to-orange-500' // Instagram gradient
+  },
+];
+
 
   return (
     <footer className="text-white bg-gray-900 dark:bg-black">
@@ -110,28 +112,40 @@ color: 'hover:bg-gradient-to-r from-pink-500 via-yellow-400 to-orange-500'
             </div>
           </div>
 <div className="md:col-span-2">
-  <h3 className="mb-4 text-lg font-semibold text-white">Connect With Me</h3>
-  <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+  <h3 className="mb-3 text-sm font-semibold text-white">Connect With Me</h3>
+  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-5">
     {socialLinks.map((social, index) => {
       const Icon = social.icon;
       return (
         <a
           key={index}
           href={social.href}
-          className={`flex flex-col items-center justify-center p-3 bg-gray-800 dark:bg-gray-700 text-white rounded-xl ${social.color} transition-all duration-300 group hover:scale-105`}
+          className={`flex flex-col items-center justify-center p-2 ${social.color} rounded-lg transition-all duration-300 group hover:scale-105`}
           aria-label={`Connect on ${social.name}`}
         >
-          <Icon className="w-5 h-5 mb-1.5 transition-transform duration-300 group-hover:scale-110" />
-          <span className="text-[0.65rem] font-medium text-center">{social.name}</span>
+          {/* Icon small */}
+          <Icon className="w-4 h-4 mb-1 transition-transform duration-300 group-hover:scale-110" />
+
+          {/* Text bigger and bold, color logic applied */}
+          <span
+            className={`text-[0.85rem] font-bold text-center ${
+              social.name === 'GitHub' || social.name === 'TikTok'
+                ? 'text-white'
+                : 'text-black'
+            }`}
+          >
+            {social.name}
+          </span>
         </a>
       );
     })}
   </div>
 </div>
 
+
         </div>
 
-        <div className="pt-8 mt-8 text-center border-t border-gray-800 dark:border-gray-700">
+        <div className="pt-5 mt-8 text-center border-t border-gray-800 dark:border-gray-700">
           <p className="text-gray-400">&copy; 2024 Yashamal Melaku. All rights reserved.</p>
         </div>
       </div>
